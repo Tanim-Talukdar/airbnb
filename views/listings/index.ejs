@@ -1,0 +1,45 @@
+<% layout('/layouts/boilerplate.ejs') -%>
+  <body>
+    <div class="filters">
+      <div class="arrow left-arrow"><i class="fa-solid fa-arrow-left"></i></div>
+      <div class="filter-container">
+          <div class="filter"><i class="fa-solid fa-fire"></i><p>Trending</p></div>
+          <div class="filter"><i class="fa-solid fa-bed"></i><p>Rooms</p></div>
+          <div class="filter"><i class="fa-solid fa-person-arrow-up-from-line"></i><p>Popular</p></div>
+          <div class="filter"><i class="fa-regular fa-face-surprise"></i><p>OMG</p></div>
+          <div class="filter"><i class="fa-solid fa-users-line"></i><p>National parks</p></div>
+          <div class="filter"><i class="fa-solid fa-mountain-sun"></i><p>Amazing view</p></div>
+          <div class="filter"><i class="fa-solid fa-fire"></i><p>Arcitic</p></div>
+          <div class="filter"><i class="fa-solid fa-person-skating"></i><p>Island</p></div>
+          <div class="filter"><i class="fa-solid fa-sailboat"></i><p>Boats</p></div>
+          <div class="filter"><i class="fa-solid fa-wand-sparkles"></i><p>New</p></div>
+          <div class="filter"><i class="fa-solid fa-icons"></i><p>Icon</p></div>
+      </div>
+      <div class="arrow right-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="tax-toggle  d-flex border rounded m-3" style="height: 50px; align-items: center; justify-content: center; width: 300px;">
+        <div class="form-check-reverse form-switch ">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault" style="cursor: pointer;">Display total after taxes</label>
+        </div>
+      </div>
+  </div>
+    <h3>All Listings</h3>
+    <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-1">
+      <% for(let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+          <div class="card" >
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="..." style="height: 20rem;">
+          <div class="card-img-overlay">
+            
+          </div>
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= listing.title %> </b><br>
+              &#2547; <%= listing.price.toLocaleString("en-BD") %> / night
+            </p>
+          </div>
+        </div>
+      </a>
+      <% } %>
+    </div>
+  </body>
